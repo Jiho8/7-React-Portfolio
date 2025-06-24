@@ -1,0 +1,40 @@
+@use '../styles/variables' as var;
+
+.section_start{
+    padding: calc(var.$spacing-section*2) 0 calc(var.$spacing-section*1.5);
+    text-align: center;
+
+    @media (max-width: 480px) {
+        padding: calc(var.$spacing-section*1.5) 0 var.$spacing-section;
+        .logo{
+            width: 70%; margin: 0 auto;
+            img{width: 100%;}
+        }
+    }
+};
+
+.maintxt{
+    display: inline-block;
+    margin: var.$spacing-md 0;
+    color: var.$color-text-main;
+    font-size: var.$font-size-main-heading;
+    font-family: 'Freesentation-7';
+    span{color: var.$color-main-red;}
+
+    @media (max-width: 480px) {
+        margin: calc(var.$spacing-md * 0.6) 0;
+        font-size: calc(var.$font-size-main-heading * 0.8);
+    }
+}
+
+.subtxt{
+    margin-bottom: calc(var.$spacing-lg*2);
+    color: var.$color-text-grey;
+    line-height: var.$line-height-md;
+    font-size: var.$font-size-title-md;
+
+    @media (max-width: 480px) {
+        margin-bottom: calc(var.$spacing-lg*1.5);
+        font-size: calc(var.$font-size-title-md * 0.8);
+    }
+}

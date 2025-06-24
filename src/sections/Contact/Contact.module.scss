@@ -1,0 +1,72 @@
+@use '../../styles/variables' as var;
+
+:global{
+    #contact{
+        text-align: center;
+    }
+}
+
+.mainTxt{
+    margin-bottom: var.$spacing-lg;
+    font-size: var.$font-size-title-xl;
+
+    @media (max-width: 480px) {
+        font-size: calc(var.$font-size-title-xl * 0.8);
+    }
+}
+
+.contentBox{
+    display: inline-block;
+    padding: var.$spacing-md;
+    background-color: rgba($color: var.$color-main-green, $alpha: 0.3);
+    border-radius: var.$border-radius-lg;
+    max-width: 350px;
+    width: 100%;
+
+    @media (max-width: 480px) {
+        padding: calc(var.$spacing-md * 0.8);
+    }
+
+    li{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:nth-of-type(2){
+            margin: 10px 0;
+        }
+
+        p{
+            width: 30%;
+            text-align: left;
+            font-size: var.$font-size-title-md;
+            font-family: 'Freesentation-5';
+
+            @media (max-width: 480px) {
+                font-size: calc(var.$font-size-title-md * 0.8)
+            }
+        }
+
+        .link{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            @media (max-width: 480px) {
+                gap: calc(10px * 0.8);
+            }
+        }
+
+        span, a {
+            width: 60%;
+            text-align: left;
+            font-size: var.$font-size-title-md;
+            font-family: 'Freesentation-3';
+            cursor: pointer;
+
+            @media (max-width: 480px) {
+                font-size: calc(var.$font-size-title-md * 0.8);
+            }
+        }
+    }
+}

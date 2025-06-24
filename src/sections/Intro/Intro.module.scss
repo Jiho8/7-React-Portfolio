@@ -1,0 +1,83 @@
+@use '../../styles/variables' as var;
+@use '../../styles/mixin' as mixin;
+
+.titleBox{
+    @include mixin.titleSet(true);
+}
+
+.contentBox{
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+    gap: var.$spacing-horiz;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; // 태블릿에서 2열
+    }
+}
+
+.skillBox{
+    border-radius: var.$border-radius-md;
+    padding: 18px;
+    // width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var.$spacing-sm;
+
+    &:hover .img{
+        img{
+            animation: rotate360 1s linear infinite;
+            // animation: bounce .7s ease-in-out infinite;
+        }
+        // position: relative;
+
+        // &::after{
+        //     position: absolute;
+        //     content: '';
+        //     left: 50%; bottom: -10px;
+        //     transform: translateX(-50%);
+        //     display: block;
+        //     width: 100%; height: 4px;
+        //     border-radius: 60%;
+        //     background-color: rgba($color: #000000, $alpha: 0.1);
+        // }
+    }
+}
+.skillBox0{border: 1px solid var.$color-main-red;}
+.skillBox1{border: 1px solid var.$color-sub-green;}
+.skillBox2{border: 1px solid var.$color-sub-yellow;}
+
+.img{
+    width: 40px; height: auto;
+    img{width: 100%; height: 100%;}
+
+    transition: transform 0.3s ease;
+}
+
+.skillTitle{
+    margin-top: var.$spacing-sm * 2;
+    font-family: 'Freesentation-5';
+    font-size: var.$font-size-title-lg;
+
+    @media (max-width: 480px) {
+        margin-top: var.$spacing-sm;
+    }
+}
+
+.skillContent{
+    font-size: var.$font-size-sm;
+    line-height: var.$line-height-md;
+}
+
+@keyframes rotate360 {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+// @keyframes bounce {
+//     0%, 100% {transform: translateY(0);}
+//     50% {transform: translateY(-15px);}
+// }
