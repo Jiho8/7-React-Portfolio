@@ -71,6 +71,7 @@
             gap: calc(var.$spacing-horiz / 2);
             font-size: var.$font-size-sm;
             color: var.$color-main-red;
+            cursor: pointer;
         }
 
         // 상세 내용 리스트

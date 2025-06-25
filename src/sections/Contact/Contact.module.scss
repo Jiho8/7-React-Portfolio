@@ -74,6 +74,11 @@
             font-family: 'Freesentation-3';
             cursor: pointer;
 
+            &:hover{
+                font-family: 'Freesentation-4';
+                color: var.$color-sub-green;
+            }
+
             @media (max-width: 480px) {
                 font-size: calc(var.$font-size-title-md * 0.8);
             }
