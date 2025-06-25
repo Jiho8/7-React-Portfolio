@@ -117,14 +117,17 @@ section{
     gap: var.$spacing-lg;
     padding: 10px 30px;
 
-    background-color: var.$color-sub-yellow;
+    background-color: rgba(var.$color-sub-yellow, 0.7);
     border-radius: var.$border-radius-menuBar;
+
+    box-shadow: var.$box-shadow;
 
     z-index: 1000; // tooltip z-index(1400)보다 낮고 menubar 내 버튼 보다 높게
 
     &.sticky {
         top: 30px;
         bottom: auto;
+        backdrop-filter: blur(10px);
     }
 }
 
