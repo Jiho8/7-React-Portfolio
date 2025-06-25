@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TechStacksItem from './TechStacksItem';
 import data from '../../data/techStacks.json';
 import styles from './TechStacks.module.scss';
@@ -7,6 +7,7 @@ function TechStacks() {
   // 데이터 내 type 중복 제거 -> 버튼에 사용
   const uniqueTypes = ['전체', ...new Set(data.map((item) => item.type))];
 
+  const [fadeKey, setFadeKey] = useState(0);           // 리렌더링 유도
   const [selectedIdx, setSelectedIdx] = useState(0);   // 선택된 버튼 인덱스 관리
   const selectedType = uniqueTypes[selectedIdx];       // 인덱스 이용하여 선택된 타입 가져오기
 
@@ -18,6 +19,10 @@ function TechStacks() {
       return data.filter(item => item.type === selectedType);
     }
   }
+
+  useEffect(() => {
+    setFadeKey(prev => prev + 1);
+  }, [selectedIdx])
   
   return (
     <section id='tech' data-aos="fade-up">
@@ -51,13 +56,19 @@ function TechStacks() {
       <div className={styles.techStackBox}>
         {
           filteredData().map((item, i) => 
-            <TechStacksItem 
-              key={i} imgurl={item.imgurl}
+            <div 
+              key={`${item.name}-${fadeKey}-${i}`} 
+              style={{ animationDelay : `${i * 70}ms` }}
+              className={styles.animationBox}
+            >
+              <TechStacksItem 
+              imgurl={item.imgurl}
               name={item.name}   // tooltip에 표시할 이름
               tooltipClassName={styles.customTooltip}      // tooltip 클래스명
               arrowClassName={styles.customTooltipArrow}   // tooltip 내 화살표 클래스명
               boxClassName={styles.imgBox}  // 이미지 배경 박스 클래스명
-            />
+              />
+            </div>
           )
         }
       </div>

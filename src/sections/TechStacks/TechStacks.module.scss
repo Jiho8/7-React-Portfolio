@@ -78,10 +78,16 @@
 
     border-radius: var.$border-radius-md;
     box-shadow: var.$box-shadow;
-
+    
     @media (max-width: 480px) {
         width: 60px; height: 60px;
     }
+}
+
+.animationBox{
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.4s ease-out forwards;
 }
 
 // tooltip 커스터마이징
@@ -92,4 +98,11 @@
 // tooltip 화살표 커스터마이징
 .customTooltipArrow {
     color: var.$color-main-green !important;
+}
+
+@keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
 }
