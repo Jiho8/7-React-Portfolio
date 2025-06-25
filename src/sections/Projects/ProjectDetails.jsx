@@ -11,10 +11,10 @@ function ProjectDetails({ data, onClose }) {
     
         // 팝업 닫힐 때 원래대로
         return () => {
-          document.body.style.overflow = '';
+            document.body.style.overflow = '';
         };
     }, []);
-      
+    
   return (
     <div className={styles.overlay} onClick={onClose}>
         <div className={styles.detail} onClick={(e) => e.stopPropagation()}>

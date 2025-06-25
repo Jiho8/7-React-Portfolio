@@ -11,7 +11,7 @@ function Contact() {
     }
 
   return (
-    <section id='contact'>
+    <section id='contact' data-aos="fade-up">
         <p className={styles.mainTxt}>
             <strong>개발자</strong>로서 함께 <strong>성장</strong>할 기회를 기대하며, <br/>
             연락 주시면 <strong>감사한 마음</strong>으로 답변드리겠습니다.
@@ -36,7 +36,7 @@ function Contact() {
                         Github
                         <IconLink/>
                     </p>
-                    <a href="https://github.com/Jiho8">@Jiho8</a>
+                    <a href="https://github.com/Jiho8" target='_blank' rel='noopener noreferrer'>@Jiho8</a>
                 </li>
             </ul>
         </div>

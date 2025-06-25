@@ -5,23 +5,23 @@ function TechStacksItem({ imgurl, name, tooltipClassName, arrowClassName, boxCla
   return (
     <Tooltip 
       title={name}
-      arrow
+      arrow   // 화살표 표시
       classes={{
         tooltip: tooltipClassName,
         arrow: arrowClassName
       }}
-      slotProps={{
-        popper: {
-          modifiers: [
-            {
-              name: 'offset',
-              options: {
-                offset: [0, 8], // [x, y] 이동: 위로 10px
-              },
-            },
-          ],
-        },
-      }}
+      // slotProps={{
+      //   popper: {
+      //     modifiers: [
+      //       {
+      //         name: 'offset',
+      //         options: {
+      //           offset: [0, 8], // [x, y] 이동: 위로 8px
+      //         },
+      //       },
+      //     ],
+      //   },
+      // }}
     >
       <div className={boxClassName}>
         <p>

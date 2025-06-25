@@ -1,25 +1,40 @@
 @use '../styles/variables' as var;
 
-.section_start{
+//////////////////////////////////////////////////////////
+// main section //////////////////////////////////////////
+.section{
     padding: calc(var.$spacing-section*2) 0 calc(var.$spacing-section*1.5);
     text-align: center;
 
     @media (max-width: 480px) {
         padding: calc(var.$spacing-section*1.5) 0 var.$spacing-section;
+        // logo image size
         .logo{
-            width: 70%; margin: 0 auto;
+            width: 50%; margin: 0 auto;
             img{width: 100%;}
         }
     }
 };
 
+.newLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var.$spacing-horiz / 2);
+
+    p{width: 85px;}
+    img{width: 100%;}
+}
+
+//////////////////////////////////////////////////////////
+// main text -> 인사 및 소개 //////////////////////////////
 .maintxt{
     display: inline-block;
     margin: var.$spacing-md 0;
     color: var.$color-text-main;
     font-size: var.$font-size-main-heading;
     font-family: 'Freesentation-7';
-    span{color: var.$color-main-red;}
+    span{color: var.$color-main-red;} // 이름 강조
 
     @media (max-width: 480px) {
         margin: calc(var.$spacing-md * 0.6) 0;
@@ -27,14 +42,64 @@
     }
 }
 
+//////////////////////////////////////////////////////////
+// sub text -> 부가 설명 //////////////////////////////////
 .subtxt{
     margin-bottom: calc(var.$spacing-lg*2);
     color: var.$color-text-grey;
-    line-height: var.$line-height-md;
     font-size: var.$font-size-title-md;
+    line-height: var.$line-height-md;
 
     @media (max-width: 480px) {
         margin-bottom: calc(var.$spacing-lg*1.5);
         font-size: calc(var.$font-size-title-md * 0.8);
     }
 }
+
+
+//////////////////////////////////////////////////////////
+// 로고 이미지 애니메이션 //////////////////////////////////
+// 클래스 적용
+.rollIn{
+    animation: rollIn 1s ease-out forwards;
+}
+
+// 애니메이션 정의
+@keyframes rollIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100px) rotate(360deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+
+//////////////////////////////////////////////////////////
+// 이름 깜빡임 애니메이션 //////////////////////////////////
+// .flicker {
+//     animation: flicker 2s 1 forwards;
+// }
+
+// @keyframes flicker {
+//     0% {
+//         opacity: 1;
+//       }
+//       15% {
+//         opacity: 0.6;
+//       }
+//       25% {
+//         opacity: 1;
+//       }
+//       35% {
+//         opacity: 0.8;
+//       }
+//       45% {
+//         opacity: 0.4;
+//       }
+//       100% {
+//         opacity: 1;
+//       }
+// }

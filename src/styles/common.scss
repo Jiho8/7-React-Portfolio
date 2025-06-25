@@ -54,19 +54,30 @@ input, textarea{
 }
 ::before,::after{margin:0; padding: 0; box-sizing: border-box;}
 
-section{padding: var.$spacing-section 0; width: 95%; margin: 0 auto;}
+//////////////////////////////////////////////////////////
+// 섹션 //////////////////////////////////////////////////
+section{
+    padding: var.$spacing-section 0; 
+    width: 95%; 
+    margin: 0 auto;
+}
 
+//////////////////////////////////////////////////////////
+// 교육 섹션 상단 구분선 ///////////////////////////////////
 #edu{
     border-top: 1px solid rgba(var.$color-main-red, 0.2);
 }
 
-// 버튼 (외부 링크 및 더보기)
+//////////////////////////////////////////////////////////
+// 버튼 (외부 링크 및 더보기) //////////////////////////////
 .btns{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: var.$spacing-horiz;
 
+    // a: Intro section 내 외부 링크용 버튼
+    // button: Project section 내 더보기 버튼
     button, a{
         border-radius: var.$border-radius-md;
         background-color: var.$color-main-red;
@@ -74,14 +85,6 @@ section{padding: var.$spacing-section 0; width: 95%; margin: 0 auto;}
         display: inline-block;
         cursor: pointer;
     }
-
-    .linkBtnContent{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
-
     a{
         width: 185px;
         padding: 15px 25px;
@@ -91,9 +94,18 @@ section{padding: var.$spacing-section 0; width: 95%; margin: 0 auto;}
         padding: 15px 35px;
         margin-top: 70px;
     }
+
+    // 버튼 내 아이콘 + 텍스트
+    .linkBtnContent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
 }
 
-// menuBar
+//////////////////////////////////////////////////////////
+// menuBar ///////////////////////////////////////////////
 .menuBar{
     position: sticky;
     margin: 0 auto;
@@ -108,25 +120,32 @@ section{padding: var.$spacing-section 0; width: 95%; margin: 0 auto;}
     background-color: var.$color-sub-yellow;
     border-radius: var.$border-radius-menuBar;
 
-    z-index: 1000;
+    z-index: 1000; // tooltip z-index(1400)보다 낮고 menubar 내 버튼 보다 높게
 
     &.sticky {
         top: 30px;
         bottom: auto;
     }
 }
+
+// tooltip
 .menuBarTooltip{
     @include mixin.tooltipStyle('default');
 }
+
+// tooltip 화살표
 .menuBarTooltipArrow{
     color: var.$color-main-green !important;
 }
 
+// 탑버튼 (토마토 이미지)
 .topBtn{
     width: 30px; height: 30px;
     cursor: pointer;
     img{width: 100%; height: 100%;}
 }
+
+// menubar 내 버튼 박스
 .menuBtnBox{
     display: flex;
     align-items: center;
@@ -139,7 +158,7 @@ section{padding: var.$spacing-section 0; width: 95%; margin: 0 auto;}
         border: none;
         cursor: pointer;
         color: var.$color-text-sub;
-        z-index: 1;
+        z-index: 1;   // indicator 보다 위에
 
         &.select{
             font-family: 'Freesentation-5';
@@ -159,5 +178,7 @@ section{padding: var.$spacing-section 0; width: 95%; margin: 0 auto;}
         &.visible{opacity: 1;}
     }
 }
+
+
 
 @import './res_common';

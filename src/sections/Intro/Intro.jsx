@@ -1,8 +1,8 @@
 import React from 'react';
+import IntroSkill from './IntroSkill';
 import LogoGrn from '../../assets/imgs/logo-green.svg';
 import LogoYel from '../../assets/imgs/logo-yellow.svg';
 import styles from './Intro.module.scss';
-import IntroSkill from './IntroSkill';
 
 function Intro() {
   const skillData = [
@@ -25,7 +25,10 @@ function Intro() {
 
   return (
     <section id='intro'>
-      <div className={styles.titleBox}>
+      <div 
+        className={styles.titleBox}
+        data-aos="fade-up"
+      >
         <p className={styles.title}>핵심 역량</p>
         <span className={styles.subtitle}>사용자 경험을 중심에 두고, 팀과 함께 완성도 있는 웹을 개발합니다.</span>
       </div>
@@ -33,7 +36,12 @@ function Intro() {
       <div className={styles.contentBox}>
         {
           skillData.map((data, i) =>
-            <IntroSkill key={i} idx={i} data={data}/>
+            <IntroSkill 
+              key={i} idx={i}
+              data={data}
+              aosType="fade-up"
+              aosDelay={i * 150}  // 각 항목 딜레이: 0, 150, 300
+            />
           )
         }
       </div>

@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Bottom from '../../assets/imgs/icon-bottom.svg';
 import Right from '../../assets/imgs/icon-right.svg';
 import styles from './Education.module.scss';
 
-function EducationList({ data, idx, openIdx, setOpenIdx }) {
-  const isOpen = openIdx === idx;
+function EducationList({ data }) {
+  const [isOpen, setIsOpen] = useState(false);   // 열림 상태 관리
 
+  // 토글 관리 함수
   function toggleDetail() {
-    setOpenIdx(isOpen ? null : idx);
+    setIsOpen(prev => !prev);
   }
 
   return (
@@ -16,6 +17,7 @@ function EducationList({ data, idx, openIdx, setOpenIdx }) {
       onClick={toggleDetail}
     >
       <button>
+        {/* 열림 상태에 따른 아이콘 및 텍스트 분기 처리 */}
         {
           isOpen 
           ? <p><img src={Bottom} alt="icon-bottom" /></p>

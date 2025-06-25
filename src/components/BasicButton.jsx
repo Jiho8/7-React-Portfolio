@@ -7,13 +7,11 @@ function BasicButton({ type, onClick }) {
         main: [
             {
                 txt: '이력서 다운로드',
-                icon: IconDownload,
                 isComponent: false,
                 link: '/resume.pdf' // 추가 필요
             }, 
             {
                 txt: 'Github',
-                icon: IconLink,
                 isComponent: true,
                 link: 'https://github.com/Jiho8'
             },
@@ -28,18 +26,22 @@ function BasicButton({ type, onClick }) {
         {btnData[type].map((item, i) => {
             // 링크가 있으면 <a>, 없으면 <button>
             return item.link ? (
-                <a href={item.link} key={i} target="_blank" rel="noopener noreferrer" aria-label={item.txt}>
+                <a href={item.link} key={i} 
+                   target="_blank" rel="noopener noreferrer" 
+                   aria-label={item.txt}
+                >
                     <span className='linkBtnContent'>
                         {item.txt}
                         {
+                            // 버튼에 따른 아이콘 변경 (다운로드 아이콘은 컬러 변경 필요하여 컴포넌트로 사용)
                             item.isComponent
                             ? <IconLink/>
-                            : <img src={item.icon} alt="btnIcon" />
+                            : <img src={IconDownload} alt="DownloadIcon" />
                         }
                     </span>
                 </a>
             ) : (
-                <button key={i} onClick={onClick}>
+                <button key={i} onClick={onClick} data-aos="fade-up">
                     {item.txt}
                 </button>
             );

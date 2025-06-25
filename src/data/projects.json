@@ -6,16 +6,17 @@
     "duration": "2025.06.18 ~ 2025.06.24",
     "teamSize": 1,
     "mainFeatures": [
-      "상세내용1",
-      "상세내용2",
+      "모달 팝업을 이용한 프로젝트 상세 페이지",
+      ".JSON 기반 프로젝트 데이터 관리",
+      "useRef를 이용한 메뉴바 애니메이션",
       "반응형 UI"
     ],
     "techStack": [
       "React.js",
       "Sass"
     ],
-    "gitLink": "추가해야해요",
-    "webLink": "추가해야해요",
+    "gitLink": "https://github.com/Jiho8/7-React-Portfolio.git",
+    "webLink": "https://cjiho.vercel.app",
     "imgurl": "img-thumb-00.png",
     "favicon": "logo-red.svg",
     "bgColor": "red"
@@ -50,7 +51,7 @@
     "mainTitle": "먼지 - Monzi",
     "subTitle": "일정 관리 웹사이트",
     "description": "캘린더 기반 일정 관리 기능을 제공하는 웹사이트입니다. Hive를 이용하여 캘린더 내 원하는 날짜에 메모와 함께 일정을 등록/삭제할 수 있습니다. 메인에서는 이번 달 일정이 리스트 형태로 정리되어 표시되며 지난 일정은 다른 컬러를 사용하여 사용자가 알아볼 수 있도록 구현하였습니다. 또한 컨셉에 맞는 Splash를 추가하여 웹사이트의 완성도를 높였습니다.",
-    "duration": "2025.05",
+    "duration": "2025.06.04 ~ 2025.06.10",
     "teamSize": 1,
     "mainFeatures": [
       "Splash 화면",
@@ -65,7 +66,7 @@
       "GetX"
     ],
     "gitLink": "https://github.com/Jiho8/4-Flutter-Schedule.git",
-    "webLink": "https://4-flutter-schedule.vercel.app",
+    "webLink": "https://monzi.vercel.app",
     "imgurl": "img-thumb-02.png",
     "favicon": "img-favicon-02.png",
     "bgColor": "yel"
@@ -129,7 +130,7 @@
     "mainTitle": "ZFLIX",
     "subTitle": "영화 및 TV 프로그램 정보 제공 웹사이트",
     "description": "ThemovieDB 오픈 API를 기반으로 영화 및 TV 프로그램 정보를 제공하는 웹사이트입니다. Zustand를 사용하여 API 데이터를 전역에서 관리하고, Axios로 검색 결과 및 이미지 데이터를 불러와 화면에 출력하였습니다. Swiper Slide와 반응형 디자인을 적용하여 다양한 디바이스에서도 일관된 UI/UX를 제공하도록 제작하였습니다.",
-    "duration": "2025.03.12 ~ 2025.03.14",
+    "duration": "2025.03.10 ~ 2025.03.12\n(추가작업) 2025.06.30 ~ 2025.07.01",
     "teamSize": 1,
     "mainFeatures": [
       "카테고리별 정보 제공",
@@ -146,7 +147,7 @@
       "Express"
     ],
     "gitLink": "https://github.com/Jiho8/The-movie-DB-API.git",
-    "webLink": "https://the-movie-db-api.vercel.app",
+    "webLink": "https://zflix-one.vercel.app",
     "imgurl": "img-thumb-05.png",
     "favicon": "img-favicon-05.png",
     "bgColor": "red"

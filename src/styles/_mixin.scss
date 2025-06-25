@@ -1,6 +1,6 @@
 @use './variables' as var;
 
-// title
+// section title
 @mixin titleSet($hasSubtitle: true) {
   text-align: center;
 
@@ -24,17 +24,18 @@
     }
   }
 
+  // subtitle 있을 때
   @if $hasSubtitle{
     .subtitle{
+      display: block;
+      padding: var.$spacing-sm 0 var.$spacing-lg;
       font-size: var.$font-size-title-md;
       font-family: 'Freesentation-5';
-      padding: var.$spacing-sm 0 var.$spacing-lg;
       color: var.$color-text-sub;
-      display: block;
 
       @media (max-width: 480px) {
-        font-size: calc(var.$font-size-title-md * 0.8);
         padding: calc(var.$spacing-sm * 0.6) 0 calc(var.$spacing-lg * 0.6);
+        font-size: calc(var.$font-size-title-md * 0.8);
       }
     }
   }
@@ -42,11 +43,11 @@
 
 // tooltip
 @mixin tooltipStyle($section) {
+  padding: 8px 12px !important;
+  border-radius: var.$border-radius-sm !important;
   background-color: var.$color-main-green !important;
   color: var.$color-text-white !important;
   font-size: var.$font-size-xs !important;
-  border-radius: var.$border-radius-sm !important;
-  padding: 8px 12px !important;
 
   @if $section == 'tech'{
     margin: 0 !important;

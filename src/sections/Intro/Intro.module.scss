@@ -1,17 +1,18 @@
 @use '../../styles/variables' as var;
 @use '../../styles/mixin' as mixin;
 
+//////////////////////////////////////////////////////////
+// 타이틀 및 서브 타이틀 ///////////////////////////////////
 .titleBox{
     @include mixin.titleSet(true);
 }
 
+//////////////////////////////////////////////////////////
+// 타이틀 제외한 내용 박스 /////////////////////////////////
 .contentBox{
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: stretch;
+    grid-template-columns: repeat(3, 1fr); // 3열 배치
+    align-items: stretch; // 셀 높이 동일하게
     gap: var.$spacing-horiz;
 
     @media (max-width: 768px) {
@@ -19,38 +20,47 @@
     }
 }
 
+//////////////////////////////////////////////////////////
+// 핵심 역량 //////////////////////////////////////////////
+// 핵심 역량 전체 박스
 .skillBox{
-    border-radius: var.$border-radius-md;
-    padding: 18px;
-    // width: 30%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     gap: var.$spacing-sm;
+    border-radius: var.$border-radius-md;
+    padding: 18px;
 
+    // box hover 시 표시할 애니메이션
     &:hover .img{
         img{
-            animation: rotate360 1s linear infinite;
-            // animation: bounce .7s ease-in-out infinite;
-        }
-        // position: relative;
+            // 애니메이션 1) 시계방향 무한 회전
+            // animation: rotate360 1s linear infinite;
 
-        // &::after{
-        //     position: absolute;
-        //     content: '';
-        //     left: 50%; bottom: -10px;
-        //     transform: translateX(-50%);
-        //     display: block;
-        //     width: 100%; height: 4px;
-        //     border-radius: 60%;
-        //     background-color: rgba($color: #000000, $alpha: 0.1);
-        // }
+            // 애니메이션 2) 위아래로 바운스
+            animation: bounce .7s ease-in-out infinite;
+        }
+
+        // 애니메이션 2용 그림자 생성
+        position: relative;
+        &::after{
+            position: absolute;
+            content: '';
+            left: 50%; bottom: -10px;
+            transform: translateX(-50%);
+            display: block;
+            width: 100%; height: 4px;
+            border-radius: 60%;
+            background-color: rgba($color: #000000, $alpha: 0.1);
+        }
     }
 }
+
+// 박스 인덱스별 border color 설정
 .skillBox0{border: 1px solid var.$color-main-red;}
 .skillBox1{border: 1px solid var.$color-sub-green;}
 .skillBox2{border: 1px solid var.$color-sub-yellow;}
 
+// 이미지
 .img{
     width: 40px; height: auto;
     img{width: 100%; height: 100%;}
@@ -58,6 +68,7 @@
     transition: transform 0.3s ease;
 }
 
+// 각 핵심 역량 타이틀
 .skillTitle{
     margin-top: var.$spacing-sm * 2;
     font-family: 'Freesentation-5';
@@ -68,16 +79,20 @@
     }
 }
 
+// 각 핵심 역량 내용
 .skillContent{
     font-size: var.$font-size-sm;
     line-height: var.$line-height-md;
 }
 
+
+//////////////////////////////////////////////////////////
+// 이미지 애니메이션 정의 //////////////////////////////////
 @keyframes rotate360 {
     from {transform: rotate(0deg);}
     to {transform: rotate(360deg);}
 }
-// @keyframes bounce {
-//     0%, 100% {transform: translateY(0);}
-//     50% {transform: translateY(-15px);}
-// }
+@keyframes bounce {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(-12px);}
+}

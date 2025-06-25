@@ -118,7 +118,7 @@ function MenuBar() {
   }, [selectedIdx])
 
   return (
-    <div className={`menuBar ${isSticky ? 'sticky' : ''}`}>
+    <div className={`menuBar ${isSticky ? 'sticky' : ''}`} >
       <Tooltip
         title={'Going to the Top !'}
         // open={true}
