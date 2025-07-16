@@ -1,0 +1,217 @@
+@use '../../styles/variables' as var;
+@use '../../styles/mixin' as mixin;
+
+//////////////////////////////////////////////////////////
+// 타이틀 및 서브 타이틀 ///////////////////////////////////
+.titleBox{
+    @include mixin.titleSet(true);
+}
+
+//////////////////////////////////////////////////////////
+// 프로젝트 내용 //////////////////////////////////////////
+// 전체 박스
+.projectsItemBox{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2열
+    gap: var.$spacing-horiz;
+    align-items: stretch; // 높이 동일하게
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+        gap: calc(var.$spacing-horiz * 0.6);
+    }
+}
+
+// 각 프로젝트 아이템
+.item{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var.$color-text-grey;
+    border-radius: var.$border-radius-md;
+    cursor: pointer;
+
+    // 각 아이템 hover 시 클래스에 따른 background 컬러 변경
+    &.red{@include mixin.hoverStyle(var.$color-main-red);}
+    &.grn{@include mixin.hoverStyle(var.$color-main-green);}
+    &.yel{@include mixin.hoverStyle(var.$color-sub-yellow, var.$color-text-main);}
+}
+
+// 프로젝트 이미지 박스 (p태그)
+.itemThumb{
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: var.$border-radius-md var.$border-radius-md 0 0;
+
+    // 이미지
+    img{
+        width: 100%; height: 100%;
+        transition: transform 0.4s ease, filter 0.3s ease;
+    }
+}
+
+// 프로젝트 내용
+.itemContent{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; // 영역 꽉 차게
+    padding: 20px;
+    background-color: white;
+    border-radius: 0 0 var.$border-radius-md var.$border-radius-md;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease-in-out;
+
+    // 타이틀
+    p{
+        font-size: var.$font-size-title-md;
+        font-family: 'Freesentation-5';
+    }
+
+    // 서브 타이틀 (간단한 설명)
+    .contentSubtitle{
+        display: inline-block;
+        margin: 10px 0 var.$spacing-horiz;
+        font-size: var.$font-size-sm;
+    }
+
+    // 사용 기술 박스
+    .techItemBox{
+        display: flex;
+        align-items: center;
+        gap: var.$spacing-sm;
+        flex-wrap: wrap;
+        
+        // 텍스트
+        span{
+            padding: 5px 10px;
+            background-color: var.$color-text-white;
+            border-radius: var.$border-radius-sm;
+            box-shadow: var.$box-shadow;
+            font-size: var.$font-size-xs;
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////
+// detail ////////////////////////////////////////////////
+// 배경
+.overlay {
+    position: fixed !important;
+    top: 0; left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1200; // 메뉴바 보다 높게
+}
+
+// 디테일 내용
+.detail{
+    position: relative;
+    width: 80%;
+    max-width: 470px;
+    max-height: 85%;
+    padding: 40px 30px;
+    background-color: var.$color-background;
+    border-radius: var.$border-radius-lg;
+    overflow-y: auto;
+    z-index: 1201; // overlay 보다 높게
+    cursor: auto;
+
+    // 닫기 버튼
+    button{
+        position: absolute;
+        top: 4%; right: 5%;
+        transform: translate(-4%, -5%);
+        cursor: pointer;
+    }
+
+    // 타이틀
+    .mainTitle{
+        img{width: 23px; height: 23px;}
+        display: flex;
+        align-items: center;
+        gap: calc(var.$spacing-horiz / 2);
+        font-size: var.$font-size-title-md;
+        font-family: 'Freesentation-5';
+    }
+
+    // 서브 타이틀
+    .subTitle{
+        margin: 10px 0 15px;
+        font-size: var.$font-size-sm;
+    }
+
+    // 설명
+    .description{line-height: var.$line-height-lg;}
+
+    // 구분선
+    hr{
+        margin: var.$spacing-horiz 0;
+        border: none;
+        height: 1px;
+
+        &.red{background-color: rgba(var.$color-main-red, 0.6);}
+        &.grn{background-color: rgba(var.$color-main-green, 0.6);}
+        &.yel{background-color: rgba(var.$color-sub-yellow, 1.0);}
+    }
+
+    @media (max-width: 480px) {
+        max-height: 60%;
+    }
+}
+
+// 하단 요약 리스트
+.infoList{
+    display: flex;
+    flex-direction: column;
+    gap: var.$spacing-horiz;
+
+    li{
+        // 구분
+        p{
+            margin-bottom: 7px;
+            font-size: var.$font-size-sm;
+            font-family: 'Freesentation-3';
+        }
+        // 내용
+        span{white-space: pre-line;}
+
+        // 외부링크 이동 버튼 박스
+        div{
+            display: flex;
+            flex-wrap: wrap;
+            gap: var.$spacing-sm;
+
+            @media (max-width: 480px) {
+                gap: calc(var.$spacing-sm * 0.6);
+            }
+        }
+        a{
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 14px;
+            border-radius: var.$border-radius-sm;
+            font-size: var.$font-size-sm;
+
+            svg{width: 14px; height: 14px;}
+        }
+    }
+
+    &.red{
+        // 디테일 내 버튼 스타일 변경
+        a{
+            background-color: var.$color-main-red;
+            color: var.$color-text-white;
+        }
+    }
+    &.grn{
+        a{
+            background-color: var.$color-main-green;
+            color: var.$color-text-white
+        }
+    }
+    &.yel{
+        a{background-color: var.$color-sub-yellow;}
+    }
+}

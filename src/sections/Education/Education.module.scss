@@ -1,0 +1,93 @@
+@use '../../styles/variables' as var;
+@use '../../styles/mixin' as mixin;
+
+//////////////////////////////////////////////////////////
+// 타이틀 및 서브 타이틀 ///////////////////////////////////
+.titleBox{
+    @include mixin.titleSet(false);
+}
+
+//////////////////////////////////////////////////////////
+// 리스트 아이템 /////////////////////////////////////////
+// 전체 리스트 박스
+.listBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var.$spacing-md;
+
+    @media (max-width: 480px) {
+        gap: calc(var.$spacing-md * 0.6);
+    }
+}
+
+// 각 리스트 아이템
+.listItem{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+}
+
+// 이미지
+.img{
+    width: 30px; height: 30px;
+    img{width: 100%; height: 100%;}
+
+    @media (max-width: 480px) {
+        width: calc(30px * 0.8);
+        height: calc(30px * 0.8);
+    }
+}
+
+// 내용
+.content{
+    width: 90%;
+
+    // 날짜, 설명
+    .subTxt{
+        font-size: var.$font-size-sm;
+        color: var.$color-text-sub;
+    }
+
+    // 장소
+    .location{
+        margin: 5px 0;
+        font-size: var.$font-size-title-md;
+        font-family: 'Freesentation-5';
+    }
+
+    // 상세 내용
+    .detailBox{
+        font-size: var.$font-size-sm;
+
+        // 상세 내용 토글 버튼
+        button{
+            margin: var.$spacing-sm 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: calc(var.$spacing-horiz / 2);
+            font-size: var.$font-size-sm;
+            color: var.$color-main-red;
+            cursor: pointer;
+        }
+
+        // 상세 내용 리스트
+        .detailList{
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            padding: var.$spacing-horiz;
+            line-height: var.$line-height-md;
+            color: var.$color-text-sub;
+            border-radius: var.$border-radius-lg;
+            background-color: rgba($color: var.$color-main-red, $alpha: 0.3);
+        }
+    }
+
+    @media (max-width: 480px) {
+        width: 88%;
+    }
+}

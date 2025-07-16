@@ -1,0 +1,88 @@
+@use '../../styles/variables' as var;
+
+//////////////////////////////////////////////////////////
+// contact section 전체 스타일 ////////////////////////////
+:global{
+    #contact{
+        text-align: center;
+    }
+}
+
+//////////////////////////////////////////////////////////
+// 메인 텍스트/////////////////////////////////////////////
+.mainTxt{
+    margin-bottom: var.$spacing-lg;
+    font-size: var.$font-size-title-xl;
+
+    @media (max-width: 480px) {
+        font-size: calc(var.$font-size-title-xl * 0.8);
+    }
+}
+
+//////////////////////////////////////////////////////////
+// 내용 //////////////////////////////////////////////////
+.contentBox{
+    display: inline-block;
+    padding: var.$spacing-md;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 60px;
+    background-color: rgba($color: var.$color-main-green, $alpha: 0.3);
+    border-radius: var.$border-radius-lg;
+
+    @media (max-width: 480px) {
+        padding: calc(var.$spacing-md * 0.8);
+    }
+
+    // 컨택 정보 리스트
+    li{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:nth-of-type(2){
+            margin: 10px 0;
+        }
+
+        // 구분
+        p{
+            width: 30%;
+            text-align: left;
+            font-size: var.$font-size-title-md;
+            font-family: 'Freesentation-5';
+
+            @media (max-width: 480px) {
+                font-size: calc(var.$font-size-title-md * 0.8)
+            }
+        }
+
+        // 깃허브 아이콘 + 텍스트
+        .link{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            @media (max-width: 480px) {
+                gap: calc(10px * 0.8);
+            }
+        }
+
+        // 리스트 내용
+        span, a {
+            width: 60%;
+            text-align: left;
+            font-size: var.$font-size-title-md;
+            font-family: 'Freesentation-3';
+            cursor: pointer;
+
+            &:hover{
+                font-family: 'Freesentation-4';
+                color: var.$color-sub-green;
+            }
+
+            @media (max-width: 480px) {
+                font-size: calc(var.$font-size-title-md * 0.8);
+            }
+        }
+    }
+}

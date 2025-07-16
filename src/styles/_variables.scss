@@ -1,0 +1,40 @@
+// variables.scss
+
+// color
+$color-main-red: #F28375;
+$color-main-green: #90B47E;
+$color-sub-yellow: #EFEAA5;
+$color-sub-green: #819D6E;
+$color-background: #F9F5EF;
+
+$color-text-main: #333333;
+$color-text-sub: #666666;
+$color-text-grey: #999999;
+$color-text-white: #FFFFFF;
+
+// font
+$font-size-main-heading: 48px;   // 메인 텍스트 (7 Bold)
+$font-size-title-xl: 30px;       // 더 큰 타이틀 (4 Regular)
+$font-size-title-lg: 24px;       // 큰 타이틀 (7 Bold)
+$font-size-title-md: 20px;       // 일반 타이틀 (5 Medium)
+$font-size-body: 18px;           // 본문 (4 Regular)
+$font-size-sm: 15px;             // 작은 텍스트 (4 Regular)
+$font-size-xs: 12px;             // 더 작은 텍스트 (4 Regular)
+
+$line-height-lg: 1.7;            // 넓은 자간
+$line-height-md: 1.5;            // 보통 자간
+
+// spacing
+$spacing-sm: 12px;
+$spacing-md: 30px;
+$spacing-lg: 40px;
+$spacing-horiz: 18px;            // 가로 여백
+$spacing-section: 100px;         // 섹션 간 여백
+
+// etc
+$border-radius-menuBar: 50px;
+$border-radius-lg: 15px;
+$border-radius-md: 9px;
+$border-radius-sm: 7px;
+
+$box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);

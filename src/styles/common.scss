@@ -1,0 +1,187 @@
+@use './variables' as var;
+@use './mixin' as mixin;
+
+@font-face {
+    font-family: 'Freesentation-3';
+    src: url('../assets/fonts/Freesentation-3Light.ttf') format('truetype');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-4';
+    src: url('../assets/fonts/Freesentation-4Regular.ttf') format('truetype');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-5';
+    src: url('../assets/fonts/Freesentation-5Medium.ttf') format('truetype');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-6';
+    src: url('../assets/fonts/Freesentation-6SemiBold.ttf') format('truetype');
+    font-style: normal;
+}
+
+*{box-sizing: border-box; padding:0; margin: 0; word-break: keep-all;} 
+html{
+    font-size: var.$font-size-body; 
+    color: var.$color-text-main; 
+    background-color: var.$color-background;
+    // scrollbar-width: none;
+} 
+body{ 
+    // -ms-overflow-style: none; /* IE 10+ */
+    // -webkit-tap-highlight-color: transparent;
+    margin: 0 auto;
+    max-width: 1024px; min-height: 100vh;
+    font-family:'Freesentation-4';
+}
+body::-webkit-scrollbar {display: none;}
+h1,h2,h3,h4,h5,p,figure{margin: 0; padding: 0;}
+ol,ul,li{list-style: none; margin: 0; padding:0;}
+button{
+    border: 0; margin: 0; padding: 0; background-color: transparent; 
+    font-family: "Freesentation-4";
+    font-size: var.$font-size-body;
+    color: var.$color-text-main;
+}
+img{border: 0; vertical-align: middle; object-fit: cover;}
+a{text-decoration: none; color: var.$color-text-main;}
+input, textarea{
+    border: 0;
+    font-family: "Freesentation-4";
+    color: var.$color-text-main;
+}
+::before,::after{margin:0; padding: 0; box-sizing: border-box;}
+
+//////////////////////////////////////////////////////////
+// 섹션 //////////////////////////////////////////////////
+section{
+    padding: var.$spacing-section 0; 
+    width: 95%; 
+    margin: 0 auto;
+}
+
+//////////////////////////////////////////////////////////
+// 교육 섹션 상단 구분선 ///////////////////////////////////
+#edu{
+    border-top: 1px solid rgba(var.$color-main-red, 0.2);
+}
+
+//////////////////////////////////////////////////////////
+// 버튼 (외부 링크 및 더보기) //////////////////////////////
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var.$spacing-horiz;
+
+    // a: Intro section 내 외부 링크용 버튼
+    // button: Project section 내 더보기 버튼
+    button, a{
+        border-radius: var.$border-radius-md;
+        background-color: var.$color-main-red;
+        color: var.$color-text-white;
+        display: inline-block;
+        cursor: pointer;
+    }
+    a{
+        width: 185px;
+        padding: 15px 25px;
+    }
+    button{
+        width: fit-content;
+        padding: 15px 35px;
+        margin-top: 70px;
+    }
+
+    // 버튼 내 아이콘 + 텍스트
+    .linkBtnContent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+//////////////////////////////////////////////////////////
+// menuBar ///////////////////////////////////////////////
+.menuBar{
+    position: sticky;
+    margin: 0 auto;
+    width: fit-content;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var.$spacing-lg;
+    padding: 10px 30px;
+
+    background-color: rgba(var.$color-sub-yellow, 0.7);
+    border-radius: var.$border-radius-menuBar;
+
+    box-shadow: var.$box-shadow;
+
+    z-index: 1000; // tooltip z-index(1400)보다 낮고 menubar 내 버튼 보다 높게
+
+    &.sticky {
+        top: 30px;
+        bottom: auto;
+        backdrop-filter: blur(10px);
+    }
+}
+
+// tooltip
+.menuBarTooltip{
+    @include mixin.tooltipStyle('default');
+}
+
+// tooltip 화살표
+.menuBarTooltipArrow{
+    color: var.$color-main-green !important;
+}
+
+// 탑버튼 (토마토 이미지)
+.topBtn{
+    width: 30px; height: 30px;
+    cursor: pointer;
+    img{width: 100%; height: 100%;}
+}
+
+// menubar 내 버튼 박스
+.menuBtnBox{
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+    button{
+        position: relative;
+        padding: 8px 16px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var.$color-text-sub;
+        z-index: 1;   // indicator 보다 위에
+
+        &.select{
+            font-family: 'Freesentation-5';
+            color: var.$color-text-main;
+        }
+    }
+
+    .indicator{
+        opacity: 0; // 초기에 안 보이게
+        position: absolute;
+        height: 36px;
+        bottom: 0;
+        border-radius: var.$border-radius-menuBar;
+        background-color: var.$color-text-white;
+        transition: all 0.3s ease;
+
+        &.visible{opacity: 1;}
+    }
+}
+
+
+
+@import './res_common';
