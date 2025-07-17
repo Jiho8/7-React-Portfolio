@@ -18,7 +18,7 @@ function Projects() {
 
   return (
     <>
-      <section id='project' data-aos="fade-up">
+      <section id='project' data-aos="fade-up" data-aos-delay="500">
         {/* 제목 */}
         <div className={styles.titleBox}>
           <p className={styles.title}>프로젝트</p>

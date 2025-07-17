@@ -14,8 +14,9 @@ function App() {
   // 스크롤 애니메이션
   useEffect(() => {
     AOS.init({
-      duration: 800,   // 애니메이션 지속 시간(ms)
+      duration: 1200,   // 애니메이션 지속 시간(ms)
       once: true,      // 한 번만 실행
+      offset: 300,     // 요소가 뷰포트 하단에서 300px 정도 올라왔을 때 애니메이션 시작
     });
   }, []);
 

@@ -8,7 +8,7 @@ function Education() {
   const recentDataImg = '/imgs/logo-red.svg';  // 제일 최근 데이터에 표시할 컬러 로고
 
   return (
-    <section id='edu' data-aos="fade-up">
+    <section id='edu' data-aos="fade-up" data-aos-delay="1000">
       {/* 제목 */}
       <div className={styles.titleBox}>
         <p className={styles.title}>교육</p>

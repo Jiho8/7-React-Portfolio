@@ -15,14 +15,14 @@ function Main() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        // 화면에 감시 대상이 50% 이상(threshold) 보이면 isIntersecting: true
+        // 화면에 감시 대상이 60% 이상(threshold) 보이면 isIntersecting: true
         if (entry.isIntersecting) {
           const delay = entry.target.dataset.delay;
           entry.target.style.animationDelay = delay; // 인덱스 기반 애니메이션 딜레이 부여
           entry.target.classList.add(styles.rollIn); // 클래스 추가
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.6 });
 
     // 이미지를 감시 대상으로 등록
     imgRefs.current.forEach((el) => el && observer.observe(el));
