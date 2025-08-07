@@ -127,7 +127,7 @@ https://cjiho.vercel.app
 | **Figma** | **디자인 & UI/UX** |![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white) |
 
 ## 📚 참고 URL
-- 기획 및 화면 설계 : [천지호의 프론트엔드 포트폴리오 figma]()
+- 기획 및 화면 설계 : [천지호의 프론트엔드 포트폴리오 figma](https://www.figma.com/design/C29Lh3cgSXU3ZSr25k4RZR/Jiho-s-Portfolio?node-id=0-1&t=KJ6WNWVvlU1Mwy03-1)
 
 <hr>
 
