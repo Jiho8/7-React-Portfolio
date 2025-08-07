@@ -1,4 +1,4 @@
-
+![thumb](./public/imgs/img-thumb-00.png)
 
 ## 🍅 소개
 
@@ -125,6 +125,9 @@ https://cjiho.vercel.app
 | **GitHub** | **버전 관리** |![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white)| 
 | **Vercel** | **서버리스 플랫폼** |![vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)|
 | **Figma** | **디자인 & UI/UX** |![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white) |
+
+## 📚 참고 URL
+- 기획 및 화면 설계 : [천지호의 프론트엔드 포트폴리오 figma]()
 
 <hr>
 
