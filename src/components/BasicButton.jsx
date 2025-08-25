@@ -9,12 +9,14 @@ function BasicButton({ type, onClick }) {
             {
                 txt: '이력서 다운로드',
                 isComponent: false,
-                link: '/resume.pdf' // 추가 필요
+                link: '/프론트엔드_개발자_천지호_이력서.pdf',
+                download: true // 다운로드용 파일이면 true
             }, 
             {
                 txt: 'Github',
                 isComponent: true,
-                link: 'https://github.com/Jiho8'
+                link: 'https://github.com/Jiho8',
+                download: false
             },
         ],
         projects: [
@@ -27,9 +29,13 @@ function BasicButton({ type, onClick }) {
         {btnData[type].map((item, i) => {
             // 링크가 있으면 <a>, 없으면 <button>
             return item.link ? (
-                <a href={item.link} key={i} 
-                   target="_blank" rel="noopener noreferrer" 
-                   aria-label={item.txt}
+                <a 
+                    href={item.link}
+                    key={i} 
+                    target={item.download ? '_self' : '_blank'} 
+                    rel={item.download ? undefined : 'noopener noreferrer'} 
+                    download={item.download ? '' : undefined}
+                    aria-label={item.txt}
                 >
                     <span className='linkBtnContent'>
                         {item.txt}
